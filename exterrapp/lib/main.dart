@@ -18,14 +18,18 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightBlue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Fluid Velocity Calculator'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+    @override
+  MyHomePageFormState createState() {
+    return MyHomePageFormState();
+  }
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -106,6 +110,34 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+
+// Define a Custom Form Widget
+class MyCustomForm extends StatefulWidget {
+  @override
+  MyHomePageFormState createState() {
+    return MyHomePageFormState();
+  }
+}
+
+// Define a corresponding State class. This class will hold the data related to
+// the form.
+class MyHomePageFormState extends State<MyCustomForm> {
+  // Create a global key that will uniquely identify the Form widget and allow
+  // us to validate the form
+  //
+  // Note: This is a `GlobalKey<FormState>`, not a GlobalKey<MyCustomFormState>!
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    // Build a Form widget using the _formKey we created above
+    return Form(
+      key: _formKey,
+      child: // We'll build this out in the next steps!
     );
   }
 }
